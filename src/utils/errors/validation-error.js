@@ -5,13 +5,13 @@ class ValidationError extends Error{
         super();
         let explanation=[];
         error.errors.forEch((err)=>{
-            this.explanation.push(err.message);
+            explanation.push(err.message);
         });
 
         this.name='ValidationError';
         this.message="Not able to validate the data sent in the request";
         this.explanation=explanation;
-        this.statusCode=statusCode;
+        this.statusCode=StatusCodes.BAD_REQUEST;
     }
 }
-modeule.exports=ValidationError
+module.exports=ValidationError
